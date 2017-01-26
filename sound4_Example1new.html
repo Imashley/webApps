@@ -1,0 +1,154 @@
+<!-- Sound Example - Simple Visualiser - A graph of the waveform / Time Domain. -->
+<!-- Uses separate .js and .html files. -->
+<!-- Version: 2.0 -->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+	<title>Sound Example - Simple Visualiser - A graph of the waveform / Time Domain</title>
+
+	<!-- Here we include the our JavaScript file. You can include multiple files. -->
+	<!-- The files can have any name. -->
+	<script type="text/javascript" src="chroma.js"></script>
+	<script type="text/javascript" src="myJavaScriptFilenew.js"></script>
+	
+</head>
+
+<body bgcolor="beige">
+
+	<table>
+		<tr>
+			<td>
+				<div id="myDivContainer" style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+					<!-- HTML input list. -->
+					<input type="file" id="files" name="files[]" multiple />
+
+					<br>
+					<br>
+
+					<input id="button1" type="button" name="button1" value="Play the sound" onClick="playSound(aSoundBuffer)">
+					<br>
+					<br>
+
+					<input id="button2" type="button" name="button2" value="Stop the sound" onClick="stopSound()">
+					<br>
+					<br>
+					<input id="filters" type="button" name="filters" value="More Bass" onClick="filters()">
+					<input id="buzz" style="float-centre;" type="range" name="Filter Range" min="1" max="100">
+					<br>
+					<br>
+					<input id="filters2" type="button" name="Low Pass" value="Low Shelf" onClick="lowPass()">
+					<input id="lol" style="float-centre;" type="range" name="Filter Range" min="1" max="100">
+					<br>
+					<br>
+					
+					<input id="volume" type="range" min="0" max="1" step="0.1" value="1.0" />
+					<br>
+
+					
+					
+			
+				</div>
+			</td>
+			<td>
+				<div id="mysecondDivContainer" style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+					<!-- HTML input list. -->
+					<input type="file" id="secondfiles" name="files2[]" multiple />
+
+					<br>
+					<br>
+
+					<input id="button12" type="button" name="button2" value="Play the sound" onClick="playsecondSound(asecondSoundBuffer)">
+					<br>
+					<br>
+
+					<input id="button22" type="button" name="button22" value="Stop the sound" onClick="stopsecondSound()">
+					<br>
+					<br>
+					<input id="filters" type="button" name="filters" value="More Bass" onClick="filters2()">
+					<input id="buzz" style="float-centre;" type="range" name="Filter Range" min="1" max="100">
+					<br>
+					<br>
+					<input id="filters2" type="button" name="Low Pass" value="Low Shelf" onClick="lowPass2()">
+					
+					<input id="lol" style="float-centre;" type="range" name="Filter Range" min="1" max="100">
+					<br>
+					<br>
+					
+					<input id="volume2" type="range" min="0" max="1" step="0.1" value="1.0" />
+					<br>
+
+					<!-- The canvas where we visualise our waveform. -->
+					
+
+					<!-- Initalise the audio context.. -->
+					<script LANGUAGE="JavaScript">
+						init();
+						addEvents();
+					</script>
+				</div>
+				
+			</td>
+			<td>
+			<div style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+			<!-- The canvas where we visualise our waveform. -->
+					<canvas id="canvas" width="400" height="300" style="float-center;"></canvas><br>
+					<canvas id="canvas2" width="400" height="300"></canvas>
+					
+					
+			</div>
+			</td>
+			<td>
+			<div style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+			<!-- The canvas where we visualise our waveform. -->
+					<canvas id="canvas3" width="400" height="300" style="float-center;"></canvas><br>
+					<canvas id="canvas4" width="400" height="300"></canvas>
+					
+					
+			</div>
+			</td>
+			<tr>
+			
+		<!-- ossilator div -->
+			<div style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+			<br>
+
+					<input id="button3" type="button" name="button2" value="Play the Tone" onClick="playTone()">
+					<input id="button4" type="button" name="button2" value="Stop the Tone" onClick="stopTone()">
+				
+
+					 <br><input id="tone" style="float-centre;" type="range" name="points" min="1" max="3">
+					 <h4> Slider Pos: <br>1=Sine <br> 2=Square<br>3=Triangle </h4>
+					 
+					 <h4> Pitch </h4>
+					 <input id="pitch" style="float-centre;" type="range" name="points" min="1" max="100"><br>
+					 
+			</div> 
+			</tr>
+			
+			<tr>
+		
+			<div style= "display: inline-block; border-radius: 25px; border: 2px solid #73AD21; padding: 20px;">
+		<!-- ossilator div --><h3> Universal options </h3>
+			 <input id="btn" type="button" value="Play Both" onclick="myFunction();"/>
+			 <br>
+			 <h4>Turn off Visualisation One</h4>
+			 <input id="on1" style="float-centre;" type="range" name="points" min="1" max="2">
+			 <div>
+			 <h4>Turn off Visualisation Two</h4>
+			 <input id="on2" style="float-centre;" type="range" name="points" min="1" max="2">
+			 <div>
+			</tr>
+		</tr>
+	</table>
+	<!-- the debug infow div -->
+	<div id="debugInfo" style="position: absolute; tip:70px; background: Olive;">
+testing
+</div>
+</body>
+
+</html>
+
